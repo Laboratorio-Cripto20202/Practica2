@@ -1,5 +1,7 @@
-class Vigenere():
+import random
 
+class Vigenere():
+    
     def __init__(self, alphabet, password=None):
         #Recomendación, ingeniárselas para no cargar siempre O(n^2) en memoria aunque esto no
         #será evaluado, con n el tamaño del alfabeto.
@@ -10,6 +12,15 @@ class Vigenere():
         :param alphabet: Alfabeto a trabajar con el cifrado.
         :param password: El password que puede ser o no dada por el usuario.
         """
+        self.alphabet=alphabet
+        if not password is None:
+            for i in range(0, len(password)):
+                self.password.append(alphabet.find(password[i]))
+        else:
+            
+            for i in range(0,random.randint(4, 10)):
+                self.password.append(alphabet[random.randint(0,27)])
+        return
 
     def cipher(self, message):
         """
@@ -18,6 +29,11 @@ class Vigenere():
         :param message: El mensaje a cifrar.
         :return: Una cadena de texto con el mensaje cifrado.
         """
+        solution=[]
+        for i in range(0,len(message)):
+            solution.append(alphabet[(self.alphabet.find(message[i])+self.alphabet.find(self.password[i])% 27)])
+        return solution
+            
 
 
     def decipher(self, ciphered):
@@ -26,3 +42,7 @@ class Vigenere():
         :param ciphered: El criptotexto a decifrar.
         :return: El texto plano correspondiente del parámetro recibido.
         """
+        solution=[]
+        for i in range(0,len(ciphered)):
+            solution.append(alphabet[(self.alphabet.find(ciphered[i])-self.alphabet.find(self.password[i])% 27)])
+        return solution
