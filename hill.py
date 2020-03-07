@@ -1,3 +1,6 @@
+import math
+from utils import *
+
 class Hill():
 
     def __init__(self, alphabet, n, key=None):
@@ -10,6 +13,16 @@ class Hill():
         :param key: una cadena que corresponde a la llave, en caso de ser una llave inválida
         arrojar una CryptographyException.
         """
+        self.alphabet = alphabet
+        sqrt_perfect = math.sqrt(n)
+        if ((sqrt_perfect-int(sqrt_perfect)) == 0):
+            if (key is None):
+                self.key = newHillKey(n)
+            else:
+                self.key = key
+        else:
+            raise CryptographyException()
+                
 
     def cipher(self, message):
         """
@@ -19,6 +32,7 @@ class Hill():
         :return: Un criptotexto correspondiente al mensaje, este debe de estar en representación de
         cadena, no lista.
         """
+        pass
 
 
     def decipher(self, ciphered):
@@ -28,3 +42,4 @@ class Hill():
         :param ciphered: El criptotexto de algún mensaje posible.
         :return: El texto plano correspondiente a manera de cadena.
         """
+        pass

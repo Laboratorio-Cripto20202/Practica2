@@ -12,7 +12,7 @@ def test_init():
     size = randint(4, 9)
     if size == 4:
         with pytest.raises(CryptographyException):
-            cipher = Hill(alphabet, size, "DBBA")
+            cipher = Hill(alphabet, size, "DBAB")
     elif size == 9:
         with pytest.raises(CryptographyException):
             cipher = Hill(alphabet, size, "DDDABCEFG")
