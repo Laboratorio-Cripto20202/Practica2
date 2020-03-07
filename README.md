@@ -1,6 +1,6 @@
 # Criptografía y seguridad
 
-## Práctica 1: Vigenere y Hill
+## Práctica 2: Vigenere y Hill
 
 ##### **Fecha de entrega:** 4 de Marzo 2020
 
