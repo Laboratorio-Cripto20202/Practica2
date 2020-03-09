@@ -30,6 +30,7 @@ def test_known_key():
     assert criptotext == "PBYSQPJJSUAFSBFLTMBVRR"
     assert cipher.decipher("UNMENSAJEDELONGITUDPAR")
 
+
 def test_random_key():
     cipher = Hill(alphabet, 4)
     c1 = cipher.cipher("UN MENSAJE CON Ñ")
